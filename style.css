@@ -1,0 +1,217 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ededed;
+}
+
+#pickers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#picker {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#wrapper {    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;    
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+
+#controls, #gridwrap{
+    flex: 1;
+    height: 100%;
+    
+}
+
+#gridwrap {
+    flex-grow: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: none;
+}
+#resetGrid {
+    margin-bottom: 6px;
+}
+.gridmember {
+    border: 1px solid #DCDCDC;
+    /* border-radius: 6%; */
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#myRange {
+    fill: #006EE3;
+  stroke: none;
+}
+#size {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+
+  
+  
+  /* The slider itself */
+  .slider {
+    /* -webkit-appearance: none;  Override default CSS styles */
+    /* appearance: none; */
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /*** The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look)
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look 
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width 
+    height: 25px; /* Slider handle height 
+    background: #04AA6D; /* Green background 
+    cursor: pointer; /* Cursor on hover 
+  }
+  
+  /* .slider::-moz-range-thumb {
+    width: 25px; 
+    height: 25px; /* Slider handle height 
+    background: #04AA6D; /* Green background 
+    cursor: pointer; /* Cursor on hover 
+  }  */
+
+
+.cm-toggle {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	margin: 10px;
+}
+
+/* To create surface of toggle button */
+.cm-toggle:after {
+	content: '';
+	width: 60px;
+	height: 28px;
+	display: inline-block;
+	background: rgba(196, 195, 195, 0.55);
+	border-radius: 18px;
+	clear: both;
+}
+
+/* Contents before checkbox to create toggle handle */
+.cm-toggle:before {
+	content: '';
+	width: 32px;
+	height: 32px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -3px;
+	border-radius: 50%;
+	background: rgb(255, 255, 255);
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Shift the handle to left on check event */
+.cm-toggle:checked:before {
+	left: 32px;
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+/* Background color when toggle button will be active */
+.cm-toggle:checked:after {
+	background: #16a085;
+}
+
+/* Transition for smoothness */
+.cm-toggle,
+.cm-toggle:before,
+.cm-toggle:after,
+.cm-toggle:checked:before,
+.cm-toggle:checked:after {
+	transition: ease .3s;
+	-webkit-transition: ease .3s;
+	-moz-transition: ease .3s;
+	-o-transition: ease .3s;
+}
+
+input[type='checkbox']:hover {
+    transform: scale(1.05);
+}
+
+input[type='color']:hover {
+    transform: scale(1.05);
+  }
+  
+  input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+  }
+  
+  input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+  }
+  
+  input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
