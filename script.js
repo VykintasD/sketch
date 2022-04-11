@@ -1,7 +1,8 @@
-const defaultColor = 'black';
+const defaultColor = '#000000';
 
 let CURRENT_COLOR = defaultColor;
 let CURRENT_BACKGROUND = '#FFFFFF';
+let OLD_BACKGROUND;
 let RANDOM_COLOR = false;
 let ERASER = false;
 let GRID = false;
@@ -10,7 +11,8 @@ function setCurrentColor(newColor){
     CURRENT_COLOR = newColor;
 }
 
-function setCurrentBackground(newBackground){        
+function setCurrentBackground(newBackground){
+            
     CURRENT_BACKGROUND = newBackground;
 }
 
@@ -38,7 +40,7 @@ function drawGrid(rows, columns){
             row.style.background = CURRENT_BACKGROUND;
             GRID ? row.style.border ='1px solid #ededed' : row.style.border = 'none'            
             row.classList.add('gridmember');
-            row.addEventListener('mousemove', changeNodeColor)            
+            row.addEventListener('mouseover', changeNodeColor)            
             column.appendChild(row);
         }
         grid.appendChild(column);
@@ -58,23 +60,39 @@ function changeNodeColor(e){
     }
 }
 
+function hexc(colorval) {    
+    let parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    delete(parts[0]);
+    for (let i = 1; i <= 3; ++i) {
+      parts[i] = parseInt(parts[i]).toString(16);
+      if (parts[i].length == 1) parts[i] = '0' + parts[i];
+    }
+    color = '#' + parts.join('');
+    return color;
+  }
+
 function changeBgColor(newBG){
     let nodes = document.querySelectorAll('.gridmember');
-    nodes.forEach( (e) => e.style.background = newBG);
+    nodes.forEach( (e) => {        
+        if(hexc(e.style.background) === OLD_BACKGROUND){
+            e.style.background = newBG;
+        }
+    });
 }
+
+
 
 function toggleGrid(){
     let nodes = document.querySelectorAll('.gridmember');
     if(GRID){        
         nodes.forEach( (e) => {
-
-         e.style.border = '1px solid #ededed';
-        //  e.style.border = '1px';
+         e.style.border = '1px solid #ededed';        
         })
     }else{
         nodes.forEach( (e) => e.style.border = 'none');
     }
 }
+
 let nodecolorpicker = document.querySelector('#nodecolorpicker');
 nodecolorpicker.addEventListener('change', (e) =>{
     setCurrentColor(e.target.value);
@@ -91,6 +109,8 @@ bgcolorpicker.addEventListener('change', (e) => {
     setCurrentBackground(e.target.value);
     changeBgColor(e.target.value);   
 })
+
+bgcolorpicker.addEventListener('click', (e) => OLD_BACKGROUND = e.target.value);
 
 let clearGridbtn = document.querySelector('#resetGrid');
 clearGridbtn.addEventListener('click', () => {
