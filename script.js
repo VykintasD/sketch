@@ -40,7 +40,8 @@ function drawGrid(rows, columns){
             row.style.background = CURRENT_BACKGROUND;
             GRID ? row.style.border ='1px solid #ededed' : row.style.border = 'none'            
             row.classList.add('gridmember');
-            row.addEventListener('mouseover', changeNodeColor)            
+            row.addEventListener('mouseover', changeNodeColor);
+            row.addEventListener('click', changeNodeColorOnClick);            
             column.appendChild(row);
         }
         grid.appendChild(column);
@@ -48,7 +49,16 @@ function drawGrid(rows, columns){
     // need the nodelist here to be able to draw after reset
     return document.querySelectorAll('.gridmember');    
 }
-
+function changeNodeColorOnClick(e){
+    if(ERASER){        
+        e.target.style.background = CURRENT_BACKGROUND;
+    }
+    else if(RANDOM_COLOR){
+        e.target.style.background = randomColor();
+    } else if (!RANDOM_COLOR){
+        e.target.style.background = CURRENT_COLOR;
+    }
+}
 function changeNodeColor(e){
     if(mouseDown && ERASER){        
         e.target.style.background = CURRENT_BACKGROUND;
