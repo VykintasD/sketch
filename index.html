@@ -10,37 +10,44 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id="header">SKETCH THIS</div>
+        <div id="headerWrapper">
+            <div id="header">SKETCH THIS</div>
+        </div>
         <div id="content">
             <div id="controls">
-                <div class="slidecontainer">
-                    <p id="size"></p>
-                    <input type="range" min="2" max="50" value="16" class="slider" id="myRange">                                       
-                </div>                 
-                <div id="pickers">
-                    <div id="picker">
-                        <input type="color" id="nodecolorpicker" value="#000000">
-                        <p>Pen</p>   
+                <div id="controlWrap">
+                    <div class="slidecontainer">
+                        <p id="size"></p>
+                        <input type="range" min="2" max="50" value="16" class="slider" id="myRange">                                       
+                    </div>                 
+                    <div id="pickers">
+                        <div id="picker">
+                            <input type="color" id="nodecolorpicker" value="#000000">
+                            <p>Pen</p>   
+                        </div>
+                        <div id="picker">
+                            <input type="color" id="bgcolorpicker" value="#FFFFFF">
+                            <p>Background</p>
+                        </div>                               
                     </div>
-                    <div id="picker">
-                        <input type="color" id="bgcolorpicker" value="#FFFFFF">
-                        <p>Background</p>
-                    </div>                               
-                 </div>
-                <label>
-                <input type="checkbox" id="randomColour" unchecked class="cm-toggle"> 
-                Go Funky</label>
-                <label><input type="checkbox" id="eraser" unchecked class="cm-toggle"> 
-                Eraser</label>
-                <label><input type="checkbox" id="gridToggle" unchecked class="cm-toggle"> 
-                    Grid</label>
-                <button id="resetGrid">Reset</button>       
+                    <label>
+                    <input type="checkbox" id="randomColour" unchecked class="cm-toggle"> 
+                    Funky</label>
+                    <label><input type="checkbox" id="eraser" unchecked class="cm-toggle"> 
+                    Eraser</label>
+                    <label><input type="checkbox" id="gridToggle" unchecked class="cm-toggle"> 
+                        Grid</label>
+                    <button id="resetGrid">Reset</button>
+                </div>       
             </div>
             <div id="gridwrap">
                 <div id="grid"></div>
             </div>
         </div>
-        <div id="footer">FOOTER</div>
+        <div id="footerWrapper">
+            <div id="footer">Vykintas Dancevicius, 2022 <a href="https://github.com/VykintasD"><img src="images/GitHub-Mark-64px.png"></div>
+            </a>
+        </div>
     </div>
 </body>
 </html>

@@ -1,7 +1,9 @@
 html, body {
     margin: 0;
     height: 100%;
-    font-family: sans-serif;
+    font-family: Hack, monospace;
+    /* font-family: Roboto, sans-serif; */
+    font-weight: bolder;
 }
 
 body {
@@ -39,13 +41,16 @@ body {
 }
 
 #controls, #gridwrap{
-    flex: 1;
-    height: 100%;
-    
+    /* border: solid 12px black; */
+    height: 100%;    
 }
 
+
+
 #gridwrap {
-    flex-grow: 3;
+    width: 660px;
+    height: 660px;
+    /* flex-grow: 3; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,15 +64,82 @@ body {
     flex-wrap: wrap;
     border: none;
 }
-#resetGrid {
-    margin-bottom: 6px;
+
+#footer, #header {    
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+#controlWrap, #gridwrap {
+    /* border: solid 6px #495057; */
+    box-shadow: 6px #495057;
+}
+
+#headerWrapper, #footerWrapper {
+    background: #adb5bd;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#content {
+    background: #ced4da;
+}
+
+img {
+    height: 32px;
+    width: 32px;
+    margin-left: 12px;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+#header {
+    display: flex;
+    justify-content: center;
+    font-size: 55px;
+}
+
+#resetGrid,
+#resetGrid::before,
+#resetGrid::after {
+    border-radius: 5px;
+    border-style: solid;    
+    padding: 8px;
+    width: 62%;
+    font-family: Hack, monospace;
+    font-weight: bold;
+    transition: ease .1s;
+	-webkit-transition: ease .1s;
+	-moz-transition: ease .1s;
+	-o-transition: ease .1s;
+}
+
+#resetGrid:active {
+    /* background-color: #3e8e41; */
+    /* box-shadow: 0 5px #666; */
+    /* transform: translateY(4px); */
+    transform: scale(0.8);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+
+#resetGrid:hover {
+    transform: scale(1.02);
+  }
+
 .gridmember {
     border: 1px solid #DCDCDC;
     /* border-radius: 6%; */
 }
 
 #controls {
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,6 +149,7 @@ body {
     fill: #006EE3;
   stroke: none;
 }
+
 #size {
     margin-bottom: 0;
     text-align: center;
@@ -89,17 +162,20 @@ label {
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
+    margin-bottom: 12px;
   }
 
   
   
   /* The slider itself */
   .slider {
-    /* -webkit-appearance: none;  Override default CSS styles */
-    /* appearance: none; */
+    margin-bottom: 12px;
+    -webkit-appearance: none;  
+    appearance: none;
+    border-radius: 10px;
     width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
+    height: 5px; /* Specified height */
+    background: #adb5bd; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -111,22 +187,23 @@ label {
     opacity: 1; /* Fully shown on mouse-over */
   }
   
-  /*** The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look)
+  
   .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look 
+    -webkit-appearance: none;  
     appearance: none;
-    width: 25px; /* Set a specific slider handle width 
-    height: 25px; /* Slider handle height 
-    background: #04AA6D; /* Green background 
-    cursor: pointer; /* Cursor on hover 
+    border-radius: 10px;
+    width: 15px; 
+    height: 15px; 
+    background: #000000; 
+    cursor: pointer; 
   }
   
-  /* .slider::-moz-range-thumb {
+  .slider::-moz-range-thumb {
     width: 25px; 
-    height: 25px; /* Slider handle height 
-    background: #04AA6D; /* Green background 
-    cursor: pointer; /* Cursor on hover 
-  }  */
+    height: 25px;
+    background: #04AA6D; 
+    cursor: pointer;  
+  } 
 
 
 .cm-toggle {
@@ -204,14 +281,19 @@ input[type='color']:hover {
     width: 80px;
     height: 80px;
     border: none;
+    background: none;
   }
   
   input[type='color']::-webkit-color-swatch-wrapper {
     padding: 0;
+    /* background-color: #6d6875; */
+    margin: 0;
   }
   
   input[type='color']::-webkit-color-swatch {
     border: none;
-    border-radius: 50px;
+    border-radius: 15px;
+    /* background-color: #6d6875; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
   }
